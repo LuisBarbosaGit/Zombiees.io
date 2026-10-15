@@ -1,0 +1,163 @@
+[
+  {
+    "X": 904,
+    "Y": 1026,
+    "Name": "sofa-green",
+    "Width": 176,
+    "Height": 59
+  },
+  {
+    "X": 898,
+    "Y": 1090,
+    "Name": "sofa-orange",
+    "Width": 188,
+    "Height": 60
+  },
+  {
+    "X": 902,
+    "Y": 1163,
+    "Name": "sofa-gray",
+    "Width": 180,
+    "Height": 43
+  },
+  {
+    "X": 1092,
+    "Y": 1031,
+    "Name": "chair-green",
+    "Width": 55,
+    "Height": 50
+  },
+  {
+    "X": 1092,
+    "Y": 1094,
+    "Name": "chair-orange",
+    "Width": 56,
+    "Height": 52
+  },
+  {
+    "X": 1160,
+    "Y": 1034,
+    "Name": "chair-blue",
+    "Width": 48,
+    "Height": 43
+  },
+  {
+    "X": 1222,
+    "Y": 1040,
+    "Name": "stool-wood",
+    "Width": 50,
+    "Height": 32
+  },
+  {
+    "X": 1218,
+    "Y": 1154,
+    "Name": "round-table",
+    "Width": 60,
+    "Height": 60
+  },
+  {
+    "X": 1281,
+    "Y": 321,
+    "Name": "crate-large",
+    "Width": 62,
+    "Height": 62
+  },
+  {
+    "X": 1356,
+    "Y": 332,
+    "Name": "crate-small",
+    "Width": 41,
+    "Height": 41
+  },
+  {
+    "X": 1282,
+    "Y": 1026,
+    "Name": "cabinet-01",
+    "Width": 188,
+    "Height": 60
+  },
+  {
+    "X": 1282,
+    "Y": 1090,
+    "Name": "cabinet-02",
+    "Width": 188,
+    "Height": 60
+  },
+  {
+    "X": 1282,
+    "Y": 1164,
+    "Name": "cabinet-03",
+    "Width": 188,
+    "Height": 40
+  },
+  {
+    "X": 1538,
+    "Y": 770,
+    "Name": "counter-large",
+    "Width": 188,
+    "Height": 188
+  },
+  {
+    "X": 1538,
+    "Y": 962,
+    "Name": "counter-wide",
+    "Width": 188,
+    "Height": 60
+  },
+  {
+    "X": 1664,
+    "Y": 539,
+    "Name": "appliance-01",
+    "Width": 64,
+    "Height": 37
+  },
+  {
+    "X": 1664,
+    "Y": 603,
+    "Name": "appliance-02",
+    "Width": 64,
+    "Height": 37
+  },
+  {
+    "X": 1536,
+    "Y": 1099,
+    "Name": "appliance-03",
+    "Width": 64,
+    "Height": 43
+  },
+  {
+    "X": 1536,
+    "Y": 1163,
+    "Name": "appliance-04",
+    "Width": 64,
+    "Height": 43
+  },
+  {
+    "X": 1538,
+    "Y": 1218,
+    "Name": "sink-or-cooker-01",
+    "Width": 60,
+    "Height": 60
+  },
+  {
+    "X": 1474,
+    "Y": 1026,
+    "Name": "storage-01",
+    "Width": 60,
+    "Height": 60
+  },
+  {
+    "X": 1474,
+    "Y": 1090,
+    "Name": "storage-02",
+    "Width": 60,
+    "Height": 60
+  },
+  {
+    "X": 1474,
+    "Y": 1164,
+    "Name": "storage-03",
+    "Width": 60,
+    "Height": 40
+  }
+]

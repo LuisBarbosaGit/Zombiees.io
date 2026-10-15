@@ -1,0 +1,22 @@
+{
+  "name": "cerco-zero",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "assets:atlas": "node scripts/create-atlas.mjs",
+    "assets:furniture": "pwsh -NoProfile -File scripts/extract-furniture-assets.ps1",
+    "map:clean": "node scripts/create-clean-map.mjs"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  }
+}
