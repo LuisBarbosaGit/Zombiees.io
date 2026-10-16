@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import type { WebSocket } from 'ws';
 import { GameRoomService } from './game-room.service';
-import { WorldMapService } from './world-map.service';
+import { WorldMapService } from '../maps/world-map.service';
 
 const services: GameRoomService[] = [];
 

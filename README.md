@@ -52,6 +52,10 @@ npm exec --yes --package=supabase -- supabase db push
 
 O servidor verifica o JWT de convidado via JWKS e usa conexão PostgreSQL direta; não recebe nem expõe a chave administrativa do Supabase. RLS está ligada em todas as tabelas. Gravações de partida são feitas pelo backend, não pelo navegador. Antes de abrir o acesso ao público, configure CAPTCHA/rate limits para sign-ins anônimos e revise os advisors de segurança do Supabase.
 
+## Organização do backend
+
+O NestJS está dividido por responsabilidade: `HealthModule` expõe saúde do processo; `MapsModule` carrega o mapa e serve sua definição; `GameModule` concentra sala, gateway WebSocket e simulação; `DatabaseModule` encapsula a conexão PostgreSQL usada pelo jogo. O módulo raiz apenas compõe esses módulos. Os contratos HTTP e os eventos WebSocket permanecem iguais.
+
 ## Multiplayer implementado
 
 - A sala pública única aceita até 32 jogadores; a primeira pessoa inicia como humana e as demais são distribuídas para manter os times equilibrados.

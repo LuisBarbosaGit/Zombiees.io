@@ -3,8 +3,8 @@ import { randomUUID } from 'node:crypto';
 import type { Team } from '@zombies-io/game-core';
 import { assignBalancedTeam, movePlayer, playersTouch, sanitizeInput, type InputFrame, type OnlinePlayer, type RoomSnapshot } from '@zombies-io/game-core';
 import type { WebSocket } from 'ws';
-import { DatabaseService } from './database.service';
-import { WorldMapService } from './world-map.service';
+import { DatabaseService } from '../database/database.service';
+import { WorldMapService } from '../maps/world-map.service';
 
 const CAPACITY = 32;
 const TICK_MS = 1000 / 30;
