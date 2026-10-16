@@ -41,6 +41,23 @@ describe('authoritative public room', () => {
     expect(snapshot.players[0]).not.toMatchObject({ x: snapshot.players[1].x, y: snapshot.players[1].y });
   });
 
+  it('allows a name-only guest into the room without saving profile or participation data', () => {
+    const writes: string[] = [];
+    const database = {
+      configured: true,
+      query: async (sql: string) => { writes.push(sql); return []; }
+    } as never;
+    const room = new GameRoomService(new WorldMapService(), database);
+    services.push(room);
+    const guest = makeSocket();
+
+    room.join(guest, null, 'Visitante');
+    expect(guest.packets.some((packet) => packet.event === 'welcome')).toBe(true);
+    room.leave(guest);
+
+    expect(writes).toEqual([]);
+  });
+
   it('returns to waiting when a round loses its second connected player', () => {
     const room = createRoom();
     const first = makeSocket();
@@ -51,3 +68,4 @@ describe('authoritative public room', () => {
     expect(room.getStatus()).toMatchObject({ playerCount: 1, status: 'waiting' });
   });
 });
+

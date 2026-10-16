@@ -42,3 +42,16 @@ kbd { padding: 2px 4px; border: 1px solid #789074; border-radius: 3px; color: #e
 .sandbox-item { flex: 0 0 auto; white-space: nowrap; }
 @media (max-width: 520px) { .menu-card { padding: 22px; } .menu-columns { grid-template-columns: 1fr; gap: 12px; margin-top: 18px; padding-top: 15px; } .menu-columns p { font-size: 12px; } .menu-note { margin-top: 14px; } }
 @media (max-width: 520px) { .sandbox-panel { max-height: 37vh; padding: 8px; } .sandbox-actions { gap: 4px; } .sandbox-panel button { padding: 6px; font-size: 11px; } .sandbox-help { font-size: 10px; } }
+
+
+.account-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 12px 0 2px; color: #9eafa0; font-size: 11px; line-height: 1.4; }
+.menu-card button.account-toggle { width: auto; flex: 0 0 auto; margin: 0; padding: 6px 0; color: #d8c17c; background: transparent; font-size: 11px; text-align: right; text-transform: none; }
+.menu-card button.account-toggle:hover { color: #f0d894; background: transparent; transform: none; }
+.menu-card button.account-toggle:disabled { color: #718174; cursor: not-allowed; }
+.account-panel { margin-top: 8px; padding: 12px; border: 1px solid #60766855; background: #101d1b; }
+.account-panel[hidden] { display: none; }
+.account-form-row { display: flex; gap: 8px; }
+.account-form-row input { min-width: 0; flex: 1; }
+.menu-card .account-form-row button#account-submit { width: auto; margin: 0; padding: 0 14px; font-size: 11px; white-space: nowrap; }
+.account-panel p { margin: 8px 0 0; color: #aab9a6; font-size: 11px; line-height: 1.4; }
+@media (max-width: 520px) { .account-row { align-items: flex-start; flex-direction: column; gap: 2px; } .menu-card button.account-toggle { text-align: left; } .account-form-row { align-items: stretch; flex-direction: column; } .menu-card .account-form-row button#account-submit { width: 100%; padding: 12px; } }

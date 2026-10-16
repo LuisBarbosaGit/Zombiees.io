@@ -18,8 +18,8 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
   handleConnection(client: WebSocket): void {
     const timeout = setTimeout(() => {
       if (!this.room.isJoined(client)) {
-        this.send(client, 'error', { code: 'AUTH_TIMEOUT', message: 'Entre novamente para jogar.' });
-        client.close(1008, 'authentication required');
+        this.send(client, 'error', { code: 'JOIN_TIMEOUT', message: 'Não foi possível entrar. Tente novamente.' });
+        client.close(1008, 'join timeout');
       }
     }, 5000);
     this.authTimeouts.set(client, timeout);
@@ -32,22 +32,37 @@ export class GameGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('join')
   async join(@ConnectedSocket() client: WebSocket, @MessageBody() body: JoinPayload): Promise<void> {
-    if (!this.jwks || !this.issuer || !body?.token) {
-      this.send(client, 'error', { code: 'AUTH_UNAVAILABLE', message: 'Autenticação online ainda não configurada.' });
-      client.close(1011, 'online auth is not configured');
+    const name = typeof body?.displayName === 'string'
+      ? Array.from(body.displayName.replace(/[\u0000-\u001f\u007f]/g, '').trim()).slice(0, 16).join('')
+      : '';
+    if (!name) {
+      this.send(client, 'error', { code: 'INVALID_NAME', message: 'Informe um nome para jogar.' });
+      client.close(1008, 'display name required');
       return;
     }
-    try {
-      const { payload } = await jwtVerify(body.token, this.jwks, { issuer: `${this.issuer}/auth/v1`, audience: 'authenticated' });
-      const userId = payload.sub;
-      if (!userId) throw new Error('missing subject');
-      clearTimeout(this.authTimeouts.get(client));
-      const name = typeof body.displayName === 'string' ? body.displayName.trim().slice(0, 16) : '';
-      this.room.join(client, userId, name || 'Sobrevivente');
-    } catch {
-      this.send(client, 'error', { code: 'INVALID_TOKEN', message: 'Sessão expirada; conecte novamente.' });
-      client.close(1008, 'invalid authentication token');
+
+    let userId: string | null = null;
+    if (body.token) {
+      if (!this.jwks || !this.issuer) {
+        this.send(client, 'error', { code: 'AUTH_UNAVAILABLE', message: 'Login indisponível; tente jogar sem conta.' });
+        client.close(1011, 'auth is not configured');
+        return;
+      }
+      try {
+        const { payload } = await jwtVerify(body.token, this.jwks, { issuer: `${this.issuer}/auth/v1`, audience: 'authenticated' });
+        if (payload.is_anonymous !== true) {
+          if (!payload.sub) throw new Error('missing subject');
+          userId = payload.sub;
+        }
+      } catch {
+        this.send(client, 'error', { code: 'INVALID_TOKEN', message: 'Sua sessão expirou. Entre novamente ou jogue sem conta.' });
+        client.close(1008, 'invalid authentication token');
+        return;
+      }
     }
+
+    clearTimeout(this.authTimeouts.get(client));
+    this.room.join(client, userId, name);
   }
 
   @SubscribeMessage('input')

@@ -58,3 +58,11 @@ O modo online precisa de um projeto Supabase configurado. Sem essas variáveis, 
 - No sandbox: arraste para mover móveis, escolha item na paleta e clique para adicionar, `Delete` para remover; roda aproxima/afasta e botão direito arrasta o mapa.
 
 O mapa de 35 × 57 tiles, pisos, paredes, árvores e móveis originais ficam em `public/assets/`. O sandbox grava seu layout no `localStorage` do navegador. `Simulation` conserva as regras locais; o mapa pode ser editado offline sem afetar a sala online.
+
+
+
+## Conta opcional no modo online
+
+Qualquer pessoa pode entrar na sala informando apenas um nome. Convidados jogam em tempo real sem criar conta, e o servidor não grava perfil nem participação individual para eles. Para salvar histórico e progresso, use **Entrar para salvar progresso** na tela inicial: o Supabase envia um link por e-mail. O backend associa registros somente quando valida um JWT de usuário permanente; tokens de usuário anônimo, inclusive sessões antigas no navegador, são tratados como convidado.
+
+Para que o link de acesso retorne ao deploy, adicione a URL pública da Vercel em **Authentication → URL Configuration → Redirect URLs** do Supabase. A autenticação por e-mail precisa estar habilitada; a variável Vite usa apenas a publishable key.

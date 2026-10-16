@@ -1,1 +1,250 @@
-YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éíßÎ7N‹Z–‹­¦ëeŠw¬Õ¥µÁ½ÉĞì%¹©•Ñ…‰±”°=¹5½‘Õ±••ÍÑÉ½äô™É½´€¹•ÍÑ©Ì½½µµ½¸œì)¥µÁ½ÉĞìÉ…¹‘½µUU%ô™É½´€¹½‘”éÉåÁÑ¼œì)¥µÁ½ÉĞÑåÁ”ìQ•…´ô™É½´€é½µ‰¥•Ìµ¥¼½…µ”µ½É”œì)¥µÁ½ÉĞì…ÍÍ¥¹	…±…¹•‘Q•…´°µ½Ù•A±…å•È°Á±…å•ÉÍQ½Õ °Í…¹¥Ñ¥é•%¹ÁÕĞ°ÑåÁ”%¹ÁÕÑÉ…µ”°ÑåÁ”=¹±¥¹•A±…å•È°ÑåÁ”I½½µM¹…ÁÍ¡½Ğô™É½´€é½µ‰¥•Ìµ¥¼½…µ”µ½É”œì)¥µÁ½ÉĞÑåÁ”ì]•‰M½­•Ğô™É½´€İÌœì)¥µÁ½ÉĞì…Ñ…‰…Í•M•ÉÙ¥”ô™É½´€œ¸½‘…Ñ…‰…Í”¹Í•ÉÙ¥”œì)¥µÁ½ÉĞì]½É±‘5…ÁM•ÉÙ¥”ô™É½´€œ¸½İ½É±µµ…À¹Í•ÉÙ¥”œì()½¹ÍĞA%Qd€ô€ÌÈì)½¹ÍĞQ%-}5L€ô€ÄÀÀÀ€¼€ÌÀì)½¹ÍĞM9AM!=Q}5L€ô€ÔÀì)½¹ÍĞI=U9}5L€ô€Ô€¨€ØÀ€¨€ÄÀÀÀì)½¹ÍĞ%9QI5%MM%=9}5L€ô€ÔÀÀÀì()¥¹Ñ•É™…”½¹¹•Ñ•‘A±…å•Èì(€ÕÍ•É%èÍÑÉ¥¹œì(€Í½­•Ğè]•‰M½­•Ğì(€ÍÑ…Ñ”è=¹±¥¹•A±…å•Èì(€¥¹ÁÕĞè%¹ÁÕÑÉ…µ”ì(€±…ÍÑM•ÅÕ•¹”è¹Õµ‰•Èì(€©½¥¹•‘Ğè¹Õµ‰•Èì(€±…ÍÑ%¹ÁÕÑĞè¹Õµ‰•Èì(€ÁÉ½™¥±•I•…‘äèAÉ½µ¥Í”ñÙ½¥øì)ô()%¹©•Ñ…‰±” ¤)•áÁ½ÉĞ±…ÍÌ…µ•I½½µM•ÉÙ¥”¥µÁ±•µ•¹ÑÌ=¹5½‘Õ±••ÍÑÉ½äì(€ÁÉ¥Ù…Ñ”É•…‘½¹±äÁ±…å•ÉÌ€ô¹•Ü5…Àñ]•‰M½­•Ğ°½¹¹•Ñ•‘A±…å•Èø ¤ì(€ÁÉ¥Ù…Ñ”Ñ¥µ•ÈèI•ÑÕÉ¹QåÁ”ñÑåÁ•½˜Í•Ñ%¹Ñ•ÉÙ…°øì(€ÁÉ¥Ù…Ñ”±…ÍÑQ¥¬€ô…Ñ”¹¹½Ü ¤ì(€ÁÉ¥Ù…Ñ”±…ÍÑ	É½…‘…ÍĞ€ô€Àì(€ÁÉ¥Ù…Ñ”¹•áÑQ¥”èQ•…´€ô€¡Õµ…¸œì(€ÁÉ¥Ù…Ñ”Ñ¥­9Õµ‰•È€ô€Àì(€ÁÉ¥Ù…Ñ”É½Õ¹€ô€Àì(€ÁÉ¥Ù…Ñ”É½Õ¹‘MÑ…ÉÑ•‘Ğ€ô€Àì(€ÁÉ¥Ù…Ñ”¥¹Ñ•Éµ¥ÍÍ¥½¹U¹Ñ¥°€ô€Àì(€ÁÉ¥Ù…Ñ”ÍÑ…ÑÕÌèI½½µM¹…ÁÍ¡½ÑlÍÑ…ÑÕÌt€ô€İ…¥Ñ¥¹œœì((€½¹ÍÑÉÕÑ½È¡ÁÉ¥Ù…Ñ”É•…‘½¹±äµ…ÁÌè]½É±‘5…ÁM•ÉÙ¥”°ÁÉ¥Ù…Ñ”É•…‘½¹±ä‘…Ñ…‰…Í”è…Ñ…‰…Í•M•ÉÙ¥”¤ì(€€€Ñ¡¥Ì¹Ñ¥µ•È€ôÍ•Ñ%¹Ñ•ÉÙ…°  ¤€ôøÑ¡¥Ì¹Ñ¥¬ ¤°Q%-}5L¤ì(€ô((€•ÑMÑ…ÑÕÌ ¤ì(€€€É•ÑÕÉ¸ì¥è€µ…¥¸œ°µ…Á%èÑ¡¥Ì¹µ…ÁÌ¹¥°Á±…å•É½Õ¹ĞèÑ¡¥Ì¹Ão8ŞÚ$z{-®éÜj×W76–öä–B’f÷"†6öç7BÆ–W"öbF†—2çÆ–W'2çfÇVW2‚’’°¢v—BÆ–W"ç&öf–ÆU&VG“°¢v—BF†—2æFF&6RçVW'’€¢–ç6W'B–çFòV&Æ–2ç6W76–öå÷Æ–W'2‡6W76–öåö–BÂW6W%ö–BÂF—7Æ•öæÖRÂFVÒ¢fÇVW2‚CÂC"ÂC2ÂCB’öâ6öæfÆ–7BFòæ÷F†–ævÂ·6W76–öä–BÂÆ–W"çW6W$–BÂÆ–W"ç7FFRææÖRÂÆ–W"ç7FFRçFVÕĞ¢“°¢Ğ¢Ò6F6‚†W'&÷"’²6öç6öÆRæW'&÷"‚w&÷VæBW'6—7FVæ6Rf–ÆVBrÂW'&÷"“²Ğ¢Ğ ¢&—fFR6æ6†÷B‚“¢&ööÕ6æ6†÷B°¢&WGW&â°¢&ööÔ–C¢vÖ–ârÂÖ–C¢F†—2æÖ2æ–BÂÖfW'6–öã¢F†—2æÖ2çfW'6–öâÂF–6³¢F†—2çF–6´çVÖ&W"À¢&÷VæC¢F†—2ç&÷VæBÂ&÷VæE&VÖ–æ–æt×3¢F†—2ç7FGW2ÓÓÒv7F—fRròÖF‚æÖ‚ƒÂ$õTäEôÕ2Ò„FFRææ÷r‚’ÒF†—2ç&÷VæE7F'FVDB’’¢À¢7FGW3¢F†—2ç7FGW2Â66—G“¢44•E’À¢Æ–W'3¢²ââçF†—2çÆ–W'2çfÇVW2‚•ÒæÖ‚‡²7FFRÒ’Óâ‡²ââç7FFRÂf6–æs¢²ââç7FFRæf6–ærÒÒ’¢Ó°¢Ğ ¢&—fFR6÷VçEFVÒ‡FVÓ¢FVÒ“¢çVÖ&W"²&WGW&â²ââçF†—2çÆ–W'2çfÇVW2‚•Òæf–ÇFW"‚‡²7FFRÒ’Óâ7FFRçFVÒÓÓÒFVÒ’æÆVæwFƒ²Ğ¢&—fFR'&öF67B†WfVçC¢7G&–ærÂFF¢Væ¶æ÷vâ“¢fö–B²f÷"†6öç7B²6ö6¶WBÒöbF†—2çÆ–W'2çfÇVW2‚’’F†—2ç6VæB‡6ö6¶WBÂWfVçBÂFF“²Ğ¢&—fFR6VæB‡6ö6¶WC¢vV%6ö6¶WBÂWfVçC¢7G&–ærÂFF¢Væ¶æ÷vâ“¢fö–B°¢–b‡6ö6¶WBç&VG•7FFRÓÓÒ6ö6¶WBäõTâ’6ö6¶WBç6VæB„¥4ôâç7G&–æv–g’‡²WfVçBÂFFÒ’“°¢Ğ¢&—fFR&W6WE&ööÒ‚“¢fö–B²F†—2ç7FGW2Òwv—F–ærs²F†—2ç&÷VæBÒ²F†—2ææW‡EF–RÒv‡VÖâs²F†—2æ–çFW&Ö—76–öåVçF–ÂÒ²Ğ¢öäÖöGVÆTFW7G&÷’‚“¢fö–B²6ÆV$–çFW'fÂ‡F†—2çF–ÖW"“²Ğ§Ğ
+import { Injectable, OnModuleDestroy } from '@nestjs/common';
+import { randomUUID } from 'node:crypto';
+import type { Team } from '@zombies-io/game-core';
+import { assignBalancedTeam, movePlayer, playersTouch, sanitizeInput, type InputFrame, type OnlinePlayer, type RoomSnapshot } from '@zombies-io/game-core';
+import type { WebSocket } from 'ws';
+import { DatabaseService } from './database.service';
+import { WorldMapService } from './world-map.service';
+
+const CAPACITY = 32;
+const TICK_MS = 1000 / 30;
+const SNAPSHOT_MS = 50;
+const ROUND_MS = 5 * 60 * 1000;
+const INTERMISSION_MS = 5000;
+
+interface ConnectedPlayer {
+  userId: string | null;
+  socket: WebSocket;
+  state: OnlinePlayer;
+  input: InputFrame;
+  lastSequence: number;
+  joinedAt: number;
+  lastInputAt: number;
+  profileReady: Promise<void>;
+}
+
+@Injectable()
+export class GameRoomService implements OnModuleDestroy {
+  private readonly players = new Map<WebSocket, ConnectedPlayer>();
+  private timer: ReturnType<typeof setInterval>;
+  private lastTick = Date.now();
+  private lastBroadcast = 0;
+  private nextTie: Team = 'human';
+  private tickNumber = 0;
+  private round = 0;
+  private roundStartedAt = 0;
+  private intermissionUntil = 0;
+  private status: RoomSnapshot['status'] = 'waiting';
+
+  constructor(private readonly maps: WorldMapService, private readonly database: DatabaseService) {
+    this.timer = setInterval(() => this.tick(), TICK_MS);
+  }
+
+  getStatus() {
+    return { id: 'main', mapId: this.maps.id, playerCount: this.players.size, capacity: CAPACITY, status: this.status, round: this.round };
+  }
+
+  isJoined(socket: WebSocket): boolean { return this.players.has(socket); }
+
+  join(socket: WebSocket, userId: string | null, name: string): void {
+    if (this.players.size >= CAPACITY) {
+      this.send(socket, 'error', { code: 'ROOM_FULL', message: 'A sala estÃ¡ cheia. Tente novamente mais tarde.' });
+      socket.close(1008, 'room full');
+      return;
+    }
+    if (userId && [...this.players.values()].some((player) => player.userId === userId)) {
+      this.send(socket, 'error', { code: 'ALREADY_CONNECTED', message: 'Esta conta jÃ¡ estÃ¡ na sala.' });
+      socket.close(1008, 'already connected');
+      return;
+    }
+    const assignment = assignBalancedTeam(this.countTeam('human'), this.countTeam('zombie'), this.nextTie);
+    this.nextTie = assignment.nextTie;
+    const occupied = [...this.players.values()].map(({ state }) => ({ x: state.x, y: state.y }));
+    const spawn = this.maps.findSpawn(this.players.size, occupied);
+    const player: ConnectedPlayer = {
+      userId, socket,
+      state: { id: randomUUID(), name, team: assignment.team, ...spawn, facing: { x: 1, y: 0 } },
+      input: { moveX: 0, moveY: 0, faceX: 0, faceY: 0, sequence: 0 }, lastSequence: -1, joinedAt: Date.now(), lastInputAt: 0,
+      profileReady: Promise.resolve()
+    };
+    this.players.set(socket, player);
+    if (userId) {
+      player.profileReady = this.database.query(
+        `insert into public.profiles(user_id, display_name) values($1, $2)
+         on conflict (user_id) do update set display_name = excluded.display_name, updated_at = now()`, [userId, name]
+      ).then(() => undefined).catch((error: unknown) => { console.error('profile persistence failed', error); });
+      void player.profileReady.then(() => this.database.query(
+        `insert into public.session_players(session_id, user_id, display_name, team)
+         select id, $1, $2, $3 from public.game_sessions
+         where room_id = 'main' and status = 'active' order by started_at desc limit 1
+         on conflict (session_id, user_id) do nothing`, [userId, name, assignment.team]
+      )).catch((error: unknown) => console.error('participant persistence failed', error));
+    }
+    if (this.status === 'waiting' && this.players.size >= 2) this.beginRound();
+    this.send(socket, 'welcome', { ...this.snapshot(), ownPlayerId: player.state.id });
+    this.broadcast('snapshot', this.snapshot());
+  }
+
+  submit(socket: WebSocket, payload: unknown): void {
+    const player = this.players.get(socket);
+    if (!player || Date.now() - player.lastInputAt < 20) return;
+    const frame = sanitizeInput(payload);
+    if (!frame || frame.sequence <= player.lastSequence) return;
+    const raw = payload as Record<string, unknown>;
+    if (typeof raw.faceX === 'number' && Number.isFinite(raw.faceX) && typeof raw.faceY === 'number' && Number.isFinite(raw.faceY)) {
+      const length = Math.hypot(raw.faceX, raw.faceY);
+      if (length > 0.001) player.state.facing = { x: raw.faceX / length, y: raw.faceY / length };
+    }
+    player.input = frame;
+    player.lastSequence = frame.sequence;
+    player.lastInputAt = Date.now();
+  }
+
+  leave(socket: WebSocket): void {
+    const player = this.players.get(socket);
+    if (!player) return;
+    this.players.delete(socket);
+    if (player.userId) void this.database.query(
+      `update public.session_players set left_at = now() where user_id = $1 and left_at is null`, [player.userId]
+    ).catch((error: unknown) => console.error('session leave persistence failed', error));
+    if (this.players.size === 0) {
+      this.cancelActiveRound();
+      this.resetRoom();
+    }
+    else if (this.status === 'active' && this.players.size < 2) {
+      this.cancelActiveRound();
+      this.status = 'waiting';
+      this.broadcast('snapshot', this.snapshot());
+    }
+    else if (this.status === 'active' && this.countTeam('human') === 0) this.finishRound('zombie');
+    else if (this.status === 'active' && this.countTeam('zombie') === 0) this.finishRound('human');
+    else this.broadcast('snapshot', this.snapshot());
+  }
+
+  private tick(): void {
+    const now = Date.now();
+    const dt = Math.min((now - this.lastTick) / 1000, 1 / 20);
+    this.lastTick = now;
+    this.tickNumber += 1;
+    if (this.status === 'active') {
+      for (const player of this.players.values()) {
+        if (!player.lastInputAt || now - player.lastInputAt > 250) {
+          player.input = { ...player.input, moveX: 0, moveY: 0 };
+        }
+        movePlayer(player.state, player.input, dt, (x, y) => this.maps.isBlocked(x, y));
+      }
+      this.infectTouchingHumans();
+      if (this.countTeam('human') === 0) this.finishRound('zombie');
+      else if (now - this.roundStartedAt >= ROUND_MS) this.finishRound('human');
+    } else if (this.status === 'intermission' && now >= this.intermissionUntil) {
+      if (this.players.size >= 2) this.beginRound();
+      else this.status = 'waiting';
+    }
+    if (now - this.lastBroadcast >= SNAPSHOT_MS) {
+      this.lastBroadcast = now;
+      this.broadcast('snapshot', this.snapshot());
+    }
+  }
+
+  private infectTouchingHumans(): void {
+    const zombies = [...this.players.values()].filter(({ state }) => state.team === 'zombie');
+    for (const human of this.players.values()) {
+      if (human.state.team === 'human' && zombies.some(({ state }) => playersTouch(human.state, state))) {
+        human.state.team = 'zombie';
+        if (human.userId) void this.database.query(
+          `update public.session_players set team = 'zombie', infected_at = now()
+           where user_id = $1 and left_at is null`, [human.userId]
+        ).catch((error: unknown) => console.error('infection persistence failed', error));
+      }
+    }
+  }
+
+  private beginRound(): void {
+    this.round += 1;
+    this.status = 'active';
+    this.roundStartedAt = Date.now();
+    const ordered = [...this.players.values()].sort((a, b) => a.joinedAt - b.joinedAt);
+    let humans = 0;
+    let zombies = 0;
+    let tie: Team = 'human';
+    const usedSpawns: Array<{ x: number; y: number }> = [];
+    ordered.forEach((player, index) => {
+      const assignment = assignBalancedTeam(humans, zombies, tie);
+      player.state.team = assignment.team;
+      tie = assignment.nextTie;
+      if (assignment.team === 'human') humans += 1;
+      else zombies += 1;
+      const location = this.maps.findSpawn(index, usedSpawns);
+      usedSpawns.push(location);
+      player.state.x = location.x;
+      player.state.y = location.y;
+      player.input = { moveX: 0, moveY: 0, faceX: 0, faceY: 0, sequence: player.lastSequence };
+    });
+    this.nextTie = tie;
+    void this.persistRound();
+  }
+
+  private finishRound(winner: Team): void {
+    if (this.status !== 'active') return;
+    this.status = 'intermission';
+    this.intermissionUntil = Date.now() + INTERMISSION_MS;
+    void this.database.query(
+      `update public.game_sessions set status = 'finished', winner = $1, ended_at = now()
+       where room_id = 'main' and status = 'active'`, [winner]
+    ).catch((error: unknown) => console.error('round result persistence failed', error));
+    void this.database.query(
+      `update public.session_players set left_at = coalesce(left_at, now())
+       where session_id = (select id from public.game_sessions where room_id = 'main' order by started_at desc limit 1)`
+    ).catch((error: unknown) => console.error('participant result persistence failed', error));
+    this.broadcast('roundEnd', { winner, nextRoundInMs: INTERMISSION_MS });
+  }
+
+  private cancelActiveRound(): void {
+    if (this.status !== 'active') return;
+    void this.database.query(
+      `update public.game_sessions set status = 'cancelled', ended_at = now()
+       where room_id = 'main' and status = 'active'`
+    ).catch((error: unknown) => console.error('round cancellation persistence failed', error));
+    void this.database.query(
+      `update public.session_players set left_at = coalesce(left_at, now())
+       where session_id = (select id from public.game_sessions where room_id = 'main' order by started_at desc limit 1)`
+    ).catch((error: unknown) => console.error('participant cancellation persistence failed', error));
+  }
+
+  private async persistRound(): Promise<void> {
+    if (!this.database.configured) return;
+    try {
+      const rows = await this.database.query<{ id: string }>(
+        `insert into public.game_sessions(room_id, map_id, round_number, status, started_at)
+         values('main', $1, $2, 'active', now()) returning id`, [this.maps.id, this.round]
+      );
+      const sessionId = rows[0]?.id;
+      if (sessionId) for (const player of this.players.values()) {
+        if (!player.userId) continue;
+        await player.profileReady;
+        await this.database.query(
+          `insert into public.session_players(session_id, user_id, display_name, team)
+           values($1, $2, $3, $4) on conflict do nothing`, [sessionId, player.userId, player.state.name, player.state.team]
+        );
+      }
+    } catch (error) { console.error('round persistence failed', error); }
+  }
+
+  private snapshot(): RoomSnapshot {
+    return {
+      roomId: 'main', mapId: this.maps.id, mapVersion: this.maps.version, tick: this.tickNumber,
+      round: this.round, roundRemainingMs: this.status === 'active' ? Math.max(0, ROUND_MS - (Date.now() - this.roundStartedAt)) : 0,
+      status: this.status, capacity: CAPACITY,
+      players: [...this.players.values()].map(({ state }) => ({ ...state, facing: { ...state.facing } }))
+    };
+  }
+
+  private countTeam(team: Team): number { return [...this.players.values()].filter(({ state }) => state.team === team).length; }
+  private broadcast(event: string, data: unknown): void { for (const { socket } of this.players.values()) this.send(socket, event, data); }
+  private send(socket: WebSocket, event: string, data: unknown): void {
+    if (socket.readyState === socket.OPEN) socket.send(JSON.stringify({ event, data }));
+  }
+  private resetRoom(): void { this.status = 'waiting'; this.round = 0; this.nextTie = 'human'; this.intermissionUntil = 0; }
+  onModuleDestroy(): void { clearInterval(this.timer); }
+}
+
