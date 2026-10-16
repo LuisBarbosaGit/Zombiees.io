@@ -43,9 +43,9 @@ O servidor online mantém conexões WebSocket e uma simulação contínua em mem
 1. Crie uma instância Ubuntu 24.04 LTS x86_64 (t3.small é um ponto de partida, ajuste após medir carga) em uma VPC. O Security Group da EC2 deve aceitar TCP 3001 somente do Security Group do ALB; exponha HTTPS 443 no ALB. Evite expor a porta 3001 e SSH diretamente à internet.
 2. Associe à EC2 um instance role/profile com `AmazonSSMManagedInstanceCore` e permissões mínimas de leitura do repositório ECR (`ecr:GetAuthorizationToken`; `ecr:BatchCheckLayerAvailability`, `ecr:GetDownloadUrlForLayer`, `ecr:BatchGetImage` restritas ao ARN do repositório). Confirme que o SSM Agent aparece online no Systems Manager.
 3. Instale AWS CLI v2, `curl`, Docker Engine e Docker Compose v2. Crie `/opt/zombies-io/.env` com `SUPABASE_URL`, `DATABASE_URL`, `DATABASE_SSL=true` e `WEB_ORIGIN` (origem exata da Vercel); restrinja o arquivo com `sudo chmod 600 /opt/zombies-io/.env`. Não coloque segredos no GitHub ou no comando SSM.
-4. Crie um repositório privado no ECR, por exemplo `zombies-io-backend). Crie um ALB HTTPS com certificado ACM e target group HTTP para a EC2 na porta 3001; health check: `/api/health).
+4. Crie um repositório privado no ECR, por exemplo `zombies-io-backend`. Crie um ALB HTTPS com certificado ACM e target group HTTP para a EC2 na porta 3001; health check: `/api/health`.
 5. Em IAM, configure o provedor OIDC `token.actions.githubusercontent.com` com audience `sts.amazonaws.com`. Crie uma role para GitHub Actions restrita ao repositório `LuisBarbosaGit/Zombiees.io`, ao environment `production` e à branch `main`: no trust policy, use `sub=repo:LuisBarbosaGit/Zombiees.io:environment:production` e restrinja também `ref=refs/heads/main`. Permita push apenas no ECR do jogo e `ssm:SendCommand` com `AWS-RunShellScript` somente para a instância; permita consultar o resultado do comando. Não crie access keys permanentes. O SSM Agent e a role da instância fazem o pull da imagem.
-6. No GitHub, crie o environment `production) e adicione estas **Actions variables**: `AWS_EC2_DEPLOY_ENABLED=true`, `AWS_DEPLOY_ROLE_ARN`, `AWS_REGION`, `AWS_ACCOUNT_ID`, `AWS_EC2_INSTANCE_ID` e `AWS_ECR_REPOSITORY`. O deploy fica desligado até a variável de habilitação ser exatamente `true`.
+6. No GitHub, crie o environment `production` e adicione estas **Actions variables**: `AWS_EC2_DEPLOY_ENABLED=true`, `AWS_DEPLOY_ROLE_ARN`, `AWS_REGION`, `AWS_ACCOUNT_ID`, `AWS_EC2_INSTANCE_ID` e `AWS_ECR_REPOSITORY`. O deploy fica desligado até a variável de habilitação ser exatamente `true`.
 
 Depois de configurado, cada push em `main` executa testes e builds; se tudo passar, publica a imagem com o SHA do commit e atualiza o container via Systems Manager. Pull requests só validam, sem acesso à AWS. O workflow falha com uma mensagem clara se `/opt/zombies-io/.env` ainda não existir.
 
@@ -53,7 +53,7 @@ Depois de configurado, cada push em `main` executa testes e builds; se tudo pass
 
 No projeto Vercel, configure em Production `VITE_GAME_API_URL=https://api.seudominio.com/api` e `VITE_GAME_WS_URL=wss://api.seudominio.com/ws/game`, substituindo pelo hostname do ALB; então redeploy o front. Na EC2, `WEB_ORIGIN` deve ser a origem exata da Vercel, sem caminho. Atualize também Redirect URLs no Supabase.
 
-Valide `https://api.seudominio.com/api/health), `/api/rooms/main) e a conexão WSS. Uma única EC2 mantém a sala em memória, mas não oferece alta disponibilidade: uma reinicialização encerra a partida; múltiplas instâncias exigirão sincronizar estado de jogo em serviço compartilhado.
+Valide `https://api.seudominio.com/api/health` e `/api/rooms/main` e a conexão WSS. Uma única EC2 mantém a sala em memória, mas não oferece alta disponibilidade: uma reinicialização encerra a partida; múltiplas instâncias exigirão sincronizar estado de jogo em serviço compartilhado.
 
 ## Preparar Supabase
 
