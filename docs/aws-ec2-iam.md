@@ -4,7 +4,7 @@ Substitua `<ACCOUNT_ID>`, `<REGION>`, `<INSTANCE_ID>` e `<ECR_REPOSITORY>` pelos
 
 ## 1. Provedor OIDC
 
-Em IAM → Identity providers, crie `token.actions.githubusercontent.com` com audience `sts.amazonaws.com), caso ainda não exista. A role de deploy deve confiar somente neste repositório, no environment `production` e em pushes da branch `main`.
+Em IAM → Identity providers, crie `token.actions.githubusercontent.com` com audience `sts.amazonaws.com`, caso ainda não exista. A role de deploy deve confiar somente neste repositório, no environment `production` e em pushes da branch `main`.
 
 Trust policy da role GitHub Actions:
 
@@ -75,7 +75,7 @@ Anexe esta policy à role acima. Ela permite enviar a imagem ao único ECR do jo
 
 ## 3. Instance profile da EC2
 
-Crie uma role para EC2 e anexe a policy gerenciada `AmazonSSMManagedInstanceCore). Anexe também esta policy de pull do ECR; substitua os mesmos placeholders:
+Crie uma role para EC2 e anexe a policy gerenciada `AmazonSSMManagedInstanceCore`. Anexe também esta policy de pull do ECR; substitua os mesmos placeholders:
 
 ```json
 {
