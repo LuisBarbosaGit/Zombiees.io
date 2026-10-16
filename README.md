@@ -1,6 +1,6 @@
 # Zombies.io
 
-Protótipo de sobrevivência top-down inspirado no Braains.io clássico. O projeto mantém o modo local e o editor sandbox e agora inclui uma base jogável para sala online com servidor autoritativo.
+Protótipo de sobrevivência top-down inspirado no Braains.io clássico. O projeto mantém o modo local e o editor sandbox e agora inclui uma base jogável para sala online com servidor autoritativo. [Acesse o passo a passo para hospedar o backend na AWS EC2](#hospedar-o-backend-na-aws-ec2).
 
 ## Rodar localmente
 
@@ -75,7 +75,7 @@ O servidor verifica o JWT de convidado via JWKS e usa conexão PostgreSQL direta
 
 ## Organização do backend
 
-O NestJS está dividido por responsabilidade: `HealthModule` expõe saúde do processo; `MapsModule` carrega o mapa e serve sua definição; `GameModule` concentra sala, gateway WebSocket e simulação; `DatabaseModule` encapsula a conexão PostgreSQL usada pelo jogo. O módulo raiz apenas compõe esses módulos. Os contratos HTTP e os eventos WebSocket permanecem iguais.
+O NestJS segue a estrutura modular convencional: cada domínio tem sua pasta, módulo e providers, e o módulo raiz apenas compõe os módulos. A estrutura atual é:\n\n```text\nserver/src/\n├── app.module.ts       # composição dos módulos\n├── database/           # conexão PostgreSQL\n├── game/               # sala, regras e gateway WebSocket\n├── health/             # health check HTTP\n└── maps/               # carregamento e endpoint do mapa\n```\n\n`HealthModule` expõe saúde do processo; `MapsModule` carrega o mapa e serve sua definição; `GameModule` concentra sala, gateway WebSocket e simulação; `DatabaseModule` encapsula a conexão PostgreSQL. Os arquivos de cada domínio ficam dentro da respectiva pasta, sem os antigos arquivos de módulo na raiz de `server/src`.
 
 ## Multiplayer implementado
 
