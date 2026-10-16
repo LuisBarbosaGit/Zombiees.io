@@ -1,0 +1,28 @@
+services:
+  game-server:
+    image: ${ECR_IMAGE:?Defina ECR_IMAGE antes de iniciar o container}
+    env_file:
+      - /opt/zombies-io/.env
+    environment:
+      NODE_ENV: production
+      PORT: "3001"
+      GAME_MAP_FILE: /app/public/assets/maps/braains-classic-clean.tmj
+    ports:
+      - "3001:3001"
+    init: true
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3001/api/health').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
