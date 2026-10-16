@@ -21,6 +21,19 @@ npm run dev
 
 O front abre no endereço do Vite (por padrão `http://127.0.0.1:5173`) e a API fica em `http://127.0.0.1:3001/api`. Para validar sem Supabase, `npm test`, `npm run test:api`, `npm run build` e `npm run build:api`.
 
+## Rodar o backend com Docker
+
+Requer Docker Desktop (ou Docker Engine) com Docker Compose v2. O container contém o servidor NestJS e o mapa; o frontend continua sendo publicado separadamente pela Vercel.
+
+No PowerShell, copie o exemplo e preencha `SUPABASE_URL`, `DATABASE_URL` e `WEB_ORIGIN` com os valores do projeto Supabase do Zombies.io e o domínio público do frontend:
+
+```powershell
+Copy-Item .env.example .env
+docker compose up --build game-server
+```
+
+A API fica em `http://localhost:3001/api`; confira `/health` e `/rooms/main`. O WebSocket usa `ws://localhost:3001/ws/game`. Para encerrar, use `Ctrl+C` ou rode `docker compose down`. Não coloque chaves administrativas do Supabase em variáveis `VITE_*`; o backend usa somente `SUPABASE_URL` e `DATABASE_URL`.
+
 ## Preparar Supabase
 
 1. Crie um projeto Supabase e habilite **Anonymous Sign-Ins** em Authentication → Sign In / Providers. A identidade de convidado fica salva no navegador e poderá ser vinculada a uma conta depois.

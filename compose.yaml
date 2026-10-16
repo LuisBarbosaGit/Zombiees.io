@@ -1,0 +1,26 @@
+services:
+  game-server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: "3001"
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      DATABASE_URL: ${DATABASE_URL:-}
+      DATABASE_SSL: ${DATABASE_SSL:-true}
+      WEB_ORIGIN: "${WEB_ORIGIN:-http://127.0.0.1:5173}"
+      GAME_MAP_FILE: /app/public/assets/maps/braains-classic-clean.tmj
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3001/api/health').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s

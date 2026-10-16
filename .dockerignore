@@ -1,0 +1,16 @@
+.git
+**/.git
+.vercel
+**/node_modules
+node_modules
+**/dist
+dist
+**/coverage
+coverage
+**/.vite
+.env
+.env.*
+!.env.example
+npm-debug.log*
+public/assets/original
+public/assets/furniture
