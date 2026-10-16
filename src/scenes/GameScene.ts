@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { LocalSession } from '../game/LocalSession';
+import { OnlineSession } from '../game/OnlineSession';
+import { movePlayer as moveNetworkPlayer, type OnlinePlayer, type RoomSnapshot } from '@zombies-io/game-core';
 import type { Furniture, FurnitureKind, InputFrame } from '../game/types';
 import { isStaticBlocked, MAP_HEIGHT, MAP_WIDTH, TILE_SIZE, WORLD_HEIGHT, WORLD_WIDTH } from '../maps/townMap';
 
@@ -52,7 +54,7 @@ export class GameScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private paused = false;
   private overlay?: Phaser.GameObjects.Container;
-  private mode: 'survival' | 'sandbox' = 'survival';
+  private mode: 'survival' | 'sandbox' | 'online' = 'survival';
   private sandboxPanel?: Phaser.GameObjects.DOMElement;
   private sandboxMessage?: HTMLElement;
   private selectedKind: FurnitureKind | null = null;
@@ -63,14 +65,26 @@ export class GameScene extends Phaser.Scene {
   private lastPanPoint = { x: 0, y: 0 };
   private furnitureSequence = 0;
   private defaultFurniture: Furniture[] = [];
+  private onlineSession?: OnlineSession;
+  private onlineSnapshot?: RoomSnapshot;
+  private onlinePlayerId?: string;
+  private onlineSprites = new Map<string, Phaser.GameObjects.Image>();
+  private onlineHud?: Phaser.GameObjects.Text;
+  private onlineNotice?: Phaser.GameObjects.Text;
+  private lastOnlineInput = 0;
 
   constructor() { super('game'); }
 
-  init(data: { name?: string; mode?: 'survival' | 'sandbox' }): void {
-    this.mode = data.mode === 'sandbox' ? 'sandbox' : 'survival';
+  init(data: { name?: string; mode?: 'survival' | 'sandbox' | 'online' }): void {
+    this.mode = data.mode === 'sandbox' || data.mode === 'online' ? data.mode : 'survival';
     this.session = new LocalSession(data.name ?? 'Sobrevivente');
+    this.onlineSession = this.mode === 'online' ? new OnlineSession() : undefined;
+    this.onlineSnapshot = undefined;
+    this.onlinePlayerId = undefined;
+    this.lastOnlineInput = 0;
     this.defaultFurniture = this.session.state.furniture.map((item) => ({ ...item }));
-    this.loadFurnitureLayout();
+    if (this.mode === 'online') this.session.state.furniture = [];
+    else this.loadFurnitureLayout();
   }
 
   preload(): void {
@@ -88,10 +102,12 @@ export class GameScene extends Phaser.Scene {
     this.drawOriginalMap();
     this.createEntitySprites();
     this.playerSprite.setVisible(this.mode !== 'sandbox');
-    this.healthPanel = this.add.graphics().setScrollFactor(0).setDepth(10).setVisible(this.mode !== 'sandbox');
-    this.healthFill = this.add.graphics().setScrollFactor(0).setDepth(11).setVisible(this.mode !== 'sandbox');
-    this.healthLabel = this.add.text(0, 0, 'VIDA', { fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#d9e6d6', fontStyle: 'bold', letterSpacing: 1 }).setScrollFactor(0).setDepth(11).setVisible(this.mode !== 'sandbox');
-    this.healthValue = this.add.text(0, 0, '', { fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#ffffff', fontStyle: 'bold' }).setOrigin(1, 0).setScrollFactor(0).setDepth(11).setVisible(this.mode !== 'sandbox');
+    this.healthPanel = this.add.graphics().setScrollFactor(0).setDepth(10).setVisible(this.mode === 'survival');
+    this.healthFill = this.add.graphics().setScrollFactor(0).setDepth(11).setVisible(this.mode === 'survival');
+    this.healthLabel = this.add.text(0, 0, 'VIDA', { fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#d9e6d6', fontStyle: 'bold', letterSpacing: 1 }).setScrollFactor(0).setDepth(11).setVisible(this.mode === 'survival');
+    this.healthValue = this.add.text(0, 0, '', { fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#ffffff', fontStyle: 'bold' }).setOrigin(1, 0).setScrollFactor(0).setDepth(11).setVisible(this.mode === 'survival');
+    this.onlineHud = this.add.text(18, 18, '', { fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#f1f4e8', fontStyle: 'bold', backgroundColor: '#07110fd9', padding: { x: 14, y: 10 } }).setScrollFactor(0).setDepth(12).setVisible(this.mode === 'online');
+    this.onlineNotice = this.add.text(this.scale.width / 2, this.scale.height / 2, '', { fontFamily: 'Arial, sans-serif', fontSize: '18px', color: '#fff5de', align: 'center', backgroundColor: '#07110fea', padding: { x: 24, y: 18 }, wordWrap: { width: Math.min(500, this.scale.width - 40) } }).setOrigin(0.5).setScrollFactor(0).setDepth(20).setVisible(false);
     this.createTouchControls();
     if (this.mode === 'sandbox') {
       this.touchControls.setVisible(false);
@@ -106,10 +122,12 @@ export class GameScene extends Phaser.Scene {
     }) as typeof this.keys;
     this.cursors = this.input.keyboard!.createCursorKeys();
     this.input.keyboard!.on('keydown-ESC', () => this.togglePause());
+    if (this.mode === 'online') this.connectOnline();
     if (this.mode === 'sandbox') this.fitSandboxMap();
     else this.cameras.main.setZoom(1);
     this.scale.on(Phaser.Scale.Events.RESIZE, () => this.layoutHudAndTouchControls());
     this.layoutHudAndTouchControls();
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.onlineSession?.close());
   }
 
   update(_time: number, delta: number): void {
@@ -129,6 +147,28 @@ export class GameScene extends Phaser.Scene {
     // Resolve against the current camera each frame, so mouse aim stays screen-relative
     // while the camera follows the keyboard-controlled player.
     const pointerWorld = this.touchLayout ? null : this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+    if (this.mode === 'online') {
+      if (!this.onlineSnapshot || !this.onlinePlayerId) return;
+      const onlinePlayer = this.onlineSnapshot.players.find((candidate) => candidate.id === this.onlinePlayerId);
+      if (!onlinePlayer) return;
+      const faceX = pointerWorld ? pointerWorld.x - player.x : moveX;
+      const faceY = pointerWorld ? pointerWorld.y - player.y : moveY;
+      const predicted: OnlinePlayer = {
+        id: this.onlinePlayerId, name: player.name, team: onlinePlayer.team,
+        x: player.x, y: player.y, facing: { x: player.facing.x, y: player.facing.y }
+      };
+      moveNetworkPlayer(predicted, { moveX, moveY, faceX, faceY, sequence: 0 }, delta / 1000, (x, y) => this.networkPositionBlocked(x, y));
+      player.x = predicted.x;
+      player.y = predicted.y;
+      player.facing = predicted.facing;
+      if (_time - this.lastOnlineInput >= 1000 / 30) {
+        this.onlineSession?.send({ moveX, moveY, faceX, faceY });
+        this.lastOnlineInput = _time;
+      }
+      this.renderEntities();
+      this.renderHud();
+      return;
+    }
     const input: InputFrame = {
       moveX,
       moveY,
@@ -139,6 +179,49 @@ export class GameScene extends Phaser.Scene {
     this.renderEntities();
     this.renderHud();
     if (this.session.state.defeated) this.showEndScreen();
+  }
+
+  private connectOnline(): void {
+    this.onlineNotice?.setText('Conectando à sala pública...').setVisible(true);
+    this.onlineSession?.connect(
+      this.session.state.player.name,
+      (status, message) => {
+        if (status === 'joined') {
+          this.onlineNotice?.setVisible(false);
+          return;
+        }
+        if (status === 'connecting') this.onlineNotice?.setText('Conectando à sala pública...').setVisible(true);
+        if (status === 'error' || status === 'disconnected') {
+          const text = `${message ?? 'A conexão foi encerrada.'}\n\nClique aqui para voltar ao menu`;
+          this.onlineNotice?.setText(text).setVisible(true).setInteractive({ useHandCursor: true });
+          this.onlineNotice?.removeAllListeners('pointerup');
+          this.onlineNotice?.on('pointerup', () => this.scene.start('menu'));
+        }
+      },
+      (snapshot) => {
+        this.onlineSnapshot = snapshot;
+        if (snapshot.ownPlayerId) this.onlinePlayerId = snapshot.ownPlayerId;
+        const own = snapshot.players.find((candidate) => candidate.id === this.onlinePlayerId);
+        if (own) {
+          this.session.state.player.x = own.x;
+          this.session.state.player.y = own.y;
+          this.session.state.player.facing = { ...own.facing };
+        }
+        this.cameras.main.centerOn(this.session.state.player.x, this.session.state.player.y);
+      },
+      (winner) => {
+        this.onlineNotice?.disableInteractive().setText(`${winner === 'human' ? 'OS HUMANOS SOBREVIVERAM' : 'A HORDA INFECTOU A CIDADE'}\n\nNova rodada em instantes...`).setVisible(true);
+        window.setTimeout(() => this.onlineNotice?.setVisible(false), 4300);
+      }
+    );
+  }
+
+  private networkPositionBlocked(x: number, y: number): boolean {
+    const radius = 14;
+    const offsets = [[0, 0], [-radius, 0], [radius, 0], [0, -radius], [0, radius]];
+    return offsets.some(([dx, dy]) => isStaticBlocked(
+      Math.floor((x + dx!) / TILE_SIZE), Math.floor((y + dy!) / TILE_SIZE)
+    ));
   }
 
   private drawOriginalMap(): void {
@@ -191,7 +274,24 @@ export class GameScene extends Phaser.Scene {
       }
     }
     for (const [id, sprite] of this.furnitureSprites) if (!furniture.some((item) => item.id === id)) sprite.destroy();
-    for (const zombie of zombies) {
+    if (this.mode === 'online') {
+      const visibleIds = new Set<string>();
+      const players = this.onlineSnapshot?.players ?? [];
+      const local = players.find((candidate) => candidate.id === this.onlinePlayerId);
+      if (local) this.playerSprite.setTexture(local.team === 'zombie' ? 'classic-zombie' : 'classic-human');
+      for (const remote of players) {
+        if (remote.id === this.onlinePlayerId) continue;
+        visibleIds.add(remote.id);
+        const texture = remote.team === 'zombie' ? 'classic-zombie' : 'classic-human';
+        let sprite = this.onlineSprites.get(remote.id);
+        if (!sprite) {
+          sprite = this.add.image(0, 0, texture).setDepth(2);
+          this.onlineSprites.set(remote.id, sprite);
+        } else if (sprite.texture.key !== texture) sprite.setTexture(texture);
+        sprite.setPosition(remote.x, remote.y).setRotation(Math.atan2(remote.facing.y, remote.facing.x) + Math.PI / 2);
+      }
+      for (const [id, sprite] of this.onlineSprites) if (!visibleIds.has(id)) { sprite.destroy(); this.onlineSprites.delete(id); }
+    } else for (const zombie of zombies) {
       let sprite = this.zombieSprites.get(zombie.id);
       if (!sprite) {
         sprite = this.add.image(0, 0, 'classic-zombie').setDepth(2);
@@ -199,11 +299,21 @@ export class GameScene extends Phaser.Scene {
       }
       sprite.setPosition(zombie.x, zombie.y).setRotation(Phaser.Math.Angle.Between(zombie.x, zombie.y, player.x, player.y) + Math.PI / 2);
     }
-    for (const [id, sprite] of this.zombieSprites) if (!zombies.some((zombie) => zombie.id === id)) { sprite.destroy(); this.zombieSprites.delete(id); }
+    if (this.mode !== 'online') for (const [id, sprite] of this.zombieSprites) if (!zombies.some((zombie) => zombie.id === id)) { sprite.destroy(); this.zombieSprites.delete(id); }
     this.playerSprite.setPosition(player.x, player.y).setRotation(Math.atan2(player.facing.y, player.facing.x) + Math.PI / 2);
   }
 
   private renderHud(): void {
+    if (this.mode === 'online') {
+      const snapshot = this.onlineSnapshot;
+      const current = snapshot?.players.find((candidate) => candidate.id === this.onlinePlayerId);
+      const humans = snapshot?.players.filter((candidate) => candidate.team === 'human').length ?? 0;
+      const zombies = snapshot?.players.filter((candidate) => candidate.team === 'zombie').length ?? 0;
+      const remaining = snapshot?.roundRemainingMs ? `${Math.ceil(snapshot.roundRemainingMs / 60000)}:${String(Math.ceil((snapshot.roundRemainingMs % 60000) / 1000) % 60).padStart(2, '0')}` : 'aguardando';
+      this.onlineHud?.setPosition(this.touchLayout ? 12 : 18, this.touchLayout ? 12 : 18)
+        .setText(`${current?.team === 'zombie' ? 'ZUMBI' : 'HUMANO'}  ·  ${humans} vs ${zombies}  ·  ${snapshot?.players.length ?? 0}/32  ·  ${remaining}`);
+      return;
+    }
     const { player } = this.session.state;
     const x = this.touchLayout ? 12 : 18;
     const y = this.touchLayout ? 12 : 18;
@@ -305,6 +415,9 @@ export class GameScene extends Phaser.Scene {
   private togglePause(): void {
     if (this.session.state.defeated) return;
     this.paused = !this.paused;
+    if (this.paused && this.mode === 'online') {
+      this.onlineSession?.send({ moveX: 0, moveY: 0, faceX: 0, faceY: 0 });
+    }
     if (this.paused) {
       const shade = this.add.rectangle(this.scale.width / 2, this.scale.height / 2, this.scale.width, this.scale.height, 0x07100f, 0.78).setScrollFactor(0);
       const text = this.add.text(this.scale.width / 2, this.scale.height / 2, 'PAUSADO\n\nPressione ESC para continuar', { align: 'center', fontFamily: 'Arial, sans-serif', fontSize: '26px', color: '#f1f6df' }).setOrigin(0.5).setScrollFactor(0);
