@@ -1,22 +1,31 @@
 {
-  "name": "cerco-zero",
+  "name": "zombies-io",
   "private": true,
   "version": "0.1.0",
+  "engines": { "node": "^20.19.0 || >=22.12.0" },
   "type": "module",
+  "workspaces": ["server", "packages/game-core"],
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "predev": "npm run build --workspace @zombies-io/game-core",
+    "dev:api": "npm run start:dev --workspace @zombies-io/server",
+    "build": "npm run build --workspace @zombies-io/game-core && tsc --noEmit && vite build",
+    "build:api": "npm run build --workspace @zombies-io/server",
     "test": "vitest run",
+    "test:api": "npm run test --workspace @zombies-io/server",
+    "db:seed-map": "node scripts/seed-map.mjs",
     "assets:atlas": "node scripts/create-atlas.mjs",
     "assets:furniture": "pwsh -NoProfile -File scripts/extract-furniture-assets.ps1",
     "map:clean": "node scripts/create-clean-map.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.107.0",
+    "@zombies-io/game-core": "0.1.0",
     "phaser": "^3.90.0"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
     "vite": "^7.1.7",
-    "vitest": "^3.2.4"
+    "vitest": "4.1.12"
   }
 }
