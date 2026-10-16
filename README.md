@@ -75,7 +75,18 @@ O servidor verifica o JWT de convidado via JWKS e usa conexão PostgreSQL direta
 
 ## Organização do backend
 
-O NestJS segue a estrutura modular convencional: cada domínio tem sua pasta, módulo e providers, e o módulo raiz apenas compõe os módulos. A estrutura atual é:\n\n```text\nserver/src/\n├── app.module.ts       # composição dos módulos\n├── database/           # conexão PostgreSQL\n├── game/               # sala, regras e gateway WebSocket\n├── health/             # health check HTTP\n└── maps/               # carregamento e endpoint do mapa\n```\n\n`HealthModule` expõe saúde do processo; `MapsModule` carrega o mapa e serve sua definição; `GameModule` concentra sala, gateway WebSocket e simulação; `DatabaseModule` encapsula a conexão PostgreSQL. Os arquivos de cada domínio ficam dentro da respectiva pasta, sem os antigos arquivos de módulo na raiz de `server/src`.
+O NestJS segue a estrutura modular convencional: cada domínio tem sua pasta, módulo e providers, e o módulo raiz apenas compõe os módulos. A estrutura atual é:
+
+```text
+server/src/
+├── app.module.ts       # composição dos módulos
+├── database/           # conexão PostgreSQL
+├── game/               # sala, regras e gateway WebSocket
+├── health/             # health check HTTP
+└── maps/               # carregamento e endpoint do mapa
+```
+
+`HealthModule` expõe saúde do processo; `MapsModule` carrega o mapa e serve sua definição; `GameModule` concentra sala, gateway WebSocket e simulação; `DatabaseModule` encapsula a conexão PostgreSQL. Os arquivos de cada domínio ficam dentro da respectiva pasta, sem os antigos arquivos de módulo na raiz de `server/src`.
 
 ## Multiplayer implementado
 
